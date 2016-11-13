@@ -1,0 +1,36 @@
+version: "2"
+services:
+  nginx:
+      build:
+          context: ./nginx
+      ports:
+          - "80:80"
+          - "443:443"
+      volumes:
+          - ./app:/var/app
+  fpm:
+      build:
+          context: ./fpm
+      volumes:
+          - ./app:/var/app
+      expose:
+          - "9000"
+      environment:
+          - "DB_HOST=db"
+          - "DB_DATABASE=wordpress"
+  db:
+      image: mariadb
+      environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_DATABASE=wordpress
+      volumes:
+          - ./database:/var/lib
+      ports:
+          - "3036:3036"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    restart: always
+    ports:
+     - "8090:80"
