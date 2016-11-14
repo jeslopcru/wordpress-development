@@ -2,15 +2,15 @@ version: "2"
 services:
   nginx:
       build:
-          context: ./nginx
+          context: ./docker/nginx
       ports:
-          - "80:80"
-          - "443:443"
+          - "8080:80"
+          - "1443:443"
       volumes:
           - ./app:/var/app
   fpm:
       build:
-          context: ./fpm
+          context: ./docker/fpm
       volumes:
           - ./app:/var/app
       expose:
@@ -24,7 +24,7 @@ services:
           - MYSQL_ROOT_PASSWORD=root
           - MYSQL_DATABASE=wordpress
       volumes:
-          - ./database:/var/lib
+          - ./docker/database:/var/lib
       ports:
           - "3036:3036"
   phpmyadmin:

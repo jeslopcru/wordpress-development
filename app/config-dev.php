@@ -1,7 +1,7 @@
 <?php
 
 /** Host settings - You need to configure your WordPress deploy url **/
-define('_BASE_URL', 'http://docker.dev');
+define('_BASE_URL', 'http://docker.dev:8080');
 
 
 // ** MySQL settings - You can get this info from your web host ** //
