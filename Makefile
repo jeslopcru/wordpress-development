@@ -12,3 +12,15 @@ stop: ## stops the docker containers
 
 down: ## destroy all container
 	docker-compose down
+
+install: ## run composer install
+	docker exec wordpressdevelopment_fpm_1 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+	docker exec wordpressdevelopment_fpm_1 php composer-setup.php
+	docker exec wordpressdevelopment_fpm_1 php -r "unlink('composer-setup.php');"
+	docker exec wordpressdevelopment_fpm_1 php composer.phar install	
+
+update: ## run composer update
+	docker exec wordpressdevelopment_fpm_1 php composer.phar update
+
+
+

@@ -32,13 +32,12 @@ It's a customized fork of [Simettric wordpress composer installation](https://gi
 git clone git@github.com:jeslopcru/wordpress-development.git
 cd wordpress-development
 make up
-cd app/
-composer install
+make install
 ~~~
 
 Add docker.dev on your /etc/hosts file and run
 
-- [http://docker.dev](http://docker.dev) run WordPress
+- [http://docker.dev:8080](http://docker.dev:8080) run WordPress
 - [http://docker.dev:8090](http://docker.dev:8090) run phpmyadmin root/root
 
 **Create your own configuration file:**
