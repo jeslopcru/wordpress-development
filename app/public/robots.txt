@@ -1,0 +1,14 @@
+Sitemap: http://www.docker.dev:8080/sitemap.xml
+User-Agent: *
+Disallow: /*/feed/
+Disallow: /*/trackback/
+Disallow: /*/attachment/
+Disallow: /author/
+Disallow: /category/*/page/
+Disallow: /category/*/feed/
+Disallow: /tag/*/page/
+Disallow: /tag/*/feed/
+Disallow: /page/
+Disallow: /comments/
+Disallow: /xmlrpc.php
+Disallow: /*?s=
